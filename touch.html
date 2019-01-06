@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div style="height:1000vh;width:100vw;background:chartreuse" id="touch"> 
+
+            </div>
+    <script>
+            document.getElementById("touch").addEventListener("touchstart",function(ev){
+                console.log(ev.touches[0])
+                const node = document.createElement("p")
+                node.append("clientX:" + ev.touches[0].clientX + ",clentY:" + ev.touches[0].clientY)
+                node.append("pageX: " + ev.touches[0].pageX + ",pageY:" + ev.touches[0].pageY)
+                document.getElementById("touch").appendChild(node)
+                //  touch ev中有touches 包含了一些手指点击的一些信息，包括 clientY，clientX
+            })
+            // document.getElementById("touch").append("<span>11</span>")
+        </script>
+</body>
+</html>

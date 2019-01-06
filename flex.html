@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>  
+        /* row 时候，主轴为横向的 column 时候 主轴为纵轴 */
+        /* justify-content 是沿着主轴怎么对齐 */
+        /* align-items 沿着附交叉轴怎么对其 */
+        /* align-content 只有多跟主轴或者换行的情况下才生效 */
+
+        .container{
+            display: flex;
+            flex-direction: row;
+            height: 300px;
+            justify-content: center;
+            background: #000;
+            align-items: center; 
+        }
+        .container span{
+            background: yellow;
+        }
+        .container2{
+            display: flex;
+            flex-direction: column;
+            height: 300px;
+            /* ; */
+            background: blue;
+            justify-content: center;
+            align-items: stretch;
+            /* 默认是stretch */
+        }
+        
+        .container2 span:first-child,.container span:first-child{
+            background: yellow;
+        }
+        .container2 span:last-child,.container span:last-child{
+            background: red;
+        }
+        .text span{
+            line-height: 100px;
+            border: dashed 1px #000;
+            vertical-align: sub;
+        }
+        
+    </style>
+    <style>
+        .container3{
+            display: flex;
+            height: 100px;
+            color: white;
+            justify-content:space-around;
+
+        }
+        .container3 span{
+            /* flex-grow: 2; */
+        }
+        .container3 span:nth-child(1){
+            background: #000;
+            /* flex: 1 1 100%; */
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+        .container3 span:nth-child(2){
+            background: #333333;
+            /* flex: 2 1 200%; */
+            flex-grow: 2;
+            flex-shrink: 0;
+        }
+        .container3 span:nth-child(3){
+            background: #555;
+            /* flex: 1 1 100%; */
+            align-self:stretch;
+            flex-grow: 1;
+            flex-shrink: 0;
+        }
+
+    </style>
+    <style>
+        [class$="face"]{
+            margin: 16px;
+            padding: 4px;
+            background: #000;
+            border-radius: 15%;
+            width: 104px;
+            height: 104px;
+            display: flex;
+            /* object-fit: contain; */
+        }
+        span.pip {
+            display: block;
+            width: 24px;
+            height: 24px;
+            margin: 4px;
+            background-color: wheat;
+            border-radius: 50%;
+        }
+        .first-face{
+            justify-content: center;
+            align-items: center;
+        }
+        .second-face {
+            justify-content: space-between;
+        }
+        .second-face .pip:nth-child(2){
+            align-self: flex-end;
+        }
+        .third-face {
+            justify-content: space-between;
+        }
+        .third-face .pip:nth-child(2) {
+            align-self: center;
+        }
+        .third-face .pip:nth-child(3) {
+            align-self: flex-end;
+        }
+
+        .forth-face,.six-face {
+            justify-content: space-between;
+        }
+        .forth-face .column,.six-face .column{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    </style>
+    <!-- https://www.cnblogs.com/nuannuan7362/p/5823381.html -->
+</head>
+<body>
+    <p class="text">
+        <span>abcdefeghasdjaksdfajxoietuxnb好的啊d </span> 
+    </p>
+    <!-- flex-grow  为主轴元素上平均分配的大小-->
+    <div class="container">
+        <span style="flex-grow: 2">1asdfasdfasdfasdfasdfasdfasdfa</span>
+        <span style="flex-grow: 2">222222</span>
+    </div>
+    <div class="container2">
+        <span style="order:1;flex-grow: 2">1asdfasdfasdfasdfasdfasdfasdfa</span>
+        <span style="order:0;flex-grow: 10">222222</span>
+    </div>
+    <div class="container3">
+        <span >1的刻印维恩</span>
+        <span>2我玩的的啊速度点吗</span>
+        <span>3诶哦你下次你诺曼底</span>
+    </div>
+
+    <div class="first-face">
+        <span class="pip"></span>
+        
+    </div>
+    <div class="second-face">
+        <span class="pip"></span>
+        <span class="pip"></span>          
+    </div>
+    <div class="third-face">
+        <span class="pip"></span>
+        <span class="pip"></span>
+        <span class="pip"></span>          
+    </div>
+    <div class="forth-face">
+        <div class="column">
+            <span class="pip"></span>
+            <span class="pip"></span>
+        </div>
+        <div class="column">
+            <span class="pip"></span>
+            <span class="pip"></span>    
+        </div>
+    </div>
+    
+    <div class="six-face">
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+                <span class="pip"></span>
+            </div>
+            <div class="column">
+                <span class="pip"></span>
+                <span class="pip"></span>
+                <span class="pip"></span>    
+            </div>
+        </div>
+
+
+</body>
+</html>
